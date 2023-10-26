@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { User } from "../utils/types";
 import { Typography } from "@mui/material";
-import { UserContext } from "./UserContext";
+import useUser from "./UserHook";
 
 const Name = () => {
-  const user: User | undefined = useContext(UserContext);
+  const user: User = useUser();
 
   return (
     <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
