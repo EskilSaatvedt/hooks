@@ -21,7 +21,7 @@ const FavoritePlanets = (): JSX.Element => {
   return (
     <Container maxWidth={false}>
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        Please select your favourite planet
+        Please select your destination:
       </Typography>
       <Box sx={{ display: "flex", gap: "8px" }}>
         {planets.map((planet) => (

@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from './components/Container';
 import { User } from './utils/types';
+import { UserContext } from './components/UserContext';
 
 const user:User = {
   id: 42,
@@ -11,7 +12,9 @@ const user:User = {
 const  App = () => {
   return (
     <div >
-      <Container user={user}/>
+      <UserContext.Provider value={user}>
+        <Container/>
+      </UserContext.Provider>
     </div>
   );
 }
