@@ -1,5 +1,7 @@
 import { Planet } from "./types";
 
+export const favoritePlanetKey = "favoritePlanet";
+
 export const planets: Planet[] = [
   {
     id: 1,

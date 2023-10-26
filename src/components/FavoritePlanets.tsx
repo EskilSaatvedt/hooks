@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import {
   Box,
   Container,
@@ -9,18 +9,32 @@ import {
   CardActions,
 } from "@mui/material";
 
-import { planets } from "../utils/vars";
+import { planets, favoritePlanetKey } from "../utils/vars";
 import { useSpaceFranchisesContext } from "./SpaceFranchisesProvider";
+import { Planet } from "../utils/types";
 
 const FavoritePlanets = (): JSX.Element => {
-  const [selectedPlanet, setSelectedPlanet] = React.useState<number | null>(
-    null
-  );
+  const fromStorage = localStorage.getItem(favoritePlanetKey);
+  let selectedPlanet: Planet | null = null;
+  if (fromStorage) {
+    selectedPlanet = JSON.parse(fromStorage) as Planet;
+  }
+
   const { setSpaceFranchises } = useSpaceFranchisesContext();
 
+  useLayoutEffect(() => {
+    setSpaceFranchises(selectedPlanet ? selectedPlanet.source : "");
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setSpaceFranchises]);
+
   const handleSelectPlanet = (id: number) => {
-    const selectedPlanet = planets.find((planet) => planet.id === id)!;
-    setSelectedPlanet(id);
+    const newSelectedPlanet = planets.find((planet) => planet.id === id)!;
+    selectedPlanet = newSelectedPlanet;
+
+    const serializedPlanet = JSON.stringify(newSelectedPlanet);
+    localStorage.setItem(favoritePlanetKey, serializedPlanet);
+
     setSpaceFranchises(selectedPlanet.source);
   };
 
@@ -34,7 +48,9 @@ const FavoritePlanets = (): JSX.Element => {
           <Card
             sx={{ maxWidth: 345 }}
             key={`planet-${planet.id}`}
-            variant={planet.id === selectedPlanet ? "elevation" : "outlined"}
+            variant={
+              planet.id === selectedPlanet?.id ? "elevation" : "outlined"
+            }
           >
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
