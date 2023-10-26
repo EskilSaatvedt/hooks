@@ -1,8 +1,13 @@
 import React from "react";
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import Name from "./Name";
+import { User } from "../utils/types";
 
-const Header = (): JSX.Element => {
+type HeaderProps = {
+  user: User;
+}
+
+const Header = ({user}: HeaderProps): JSX.Element => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -10,7 +15,7 @@ const Header = (): JSX.Element => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Welcome to Equinor Space station. Please don't panic.
           </Typography>
-          <Name />
+          <Name user={user}/>
         </Toolbar>
       </AppBar>
     </Box>

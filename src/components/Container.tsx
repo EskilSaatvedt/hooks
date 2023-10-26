@@ -1,10 +1,15 @@
 import React from 'react';
 import Header from './Header';
+import { User } from '../utils/types';
 
-const Container = ():JSX.Element => {
+type ContainerProps = {
+  user: User;
+};
+
+const Container = ({user}: ContainerProps):JSX.Element => {
   return (
     <div className="App">
-      <Header />
+      <Header user={user}/>
       {/* <FavoritePlanets /> */}
     </div>
   );
