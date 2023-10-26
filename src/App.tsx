@@ -2,6 +2,7 @@ import React from 'react';
 import Container from './components/Container';
 import { User } from './utils/types';
 import { UserContext } from './components/UserContext';
+import { SpaceFranchisesProvider } from './components/SpaceFranchisesProvider';
 
 const user:User = {
   id: 42,
@@ -13,7 +14,9 @@ const  App = () => {
   return (
     <div >
       <UserContext.Provider value={user}>
-        <Container/>
+        <SpaceFranchisesProvider>
+          <Container/>
+        </SpaceFranchisesProvider>
       </UserContext.Provider>
     </div>
   );
