@@ -8,4 +8,5 @@ export type Planet = {
   name: string;
   description: string;
   source: string;
+  image: string;
 }

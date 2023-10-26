@@ -13,7 +13,7 @@ const Header = (): JSX.Element => {
             Welcome to Equinor Space station. Please don't panic.
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {planet?.source}
+            Your favorite Sci-fi franchise: {planet?.source}
           </Typography>
           <Name />
         </Toolbar>

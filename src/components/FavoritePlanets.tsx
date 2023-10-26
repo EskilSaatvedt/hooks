@@ -7,6 +7,8 @@ import {
   CardContent,
   Button,
   CardActions,
+  CardMedia,
+  CardHeader,
 } from "@mui/material";
 
 import { planets } from "../utils/vars";
@@ -30,23 +32,29 @@ const FavoritePlanets = (): JSX.Element => {
           <Card
             sx={{
               maxWidth: 345,
+              display: "flex",
+              flexDirection: "column",
               backgroundColor:
                 currentPlanet.id === planet?.id ? "slategrey" : "default",
             }}
             key={`planet-${currentPlanet.id}`}
-            variant={
-              currentPlanet.id === planet?.id ? "elevation" : "outlined"
-            }
+            variant={currentPlanet.id === planet?.id ? "elevation" : "outlined"}
           >
+            <CardHeader title={currentPlanet.name} />
+            <CardMedia 
+            
+            component="img"
+            height="150"
+            image={currentPlanet.image}
+            alt={currentPlanet.name}
+            
+            />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {currentPlanet.name}
-              </Typography>
               <Typography variant="body2" color="text.secondary">
                 {currentPlanet.description}
               </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions sx={{marginTop: 'auto'}}>
               <Button
                 onClick={() => handleSelectPlanet(currentPlanet.id)}
                 size="small"
