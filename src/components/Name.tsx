@@ -1,14 +1,14 @@
 import React from "react";
 import { User } from "../utils/types";
 import { Typography } from "@mui/material";
-import useUser from "./UserHook";
+import useUserContext from "./UserHook";
 
 const Name = () => {
-  const user: User = useUser();
+  const user: User = useUserContext();
 
   return (
     <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
-      {user ? user.name : ""}
+      {user.name}
     </Typography>
   );
 };
