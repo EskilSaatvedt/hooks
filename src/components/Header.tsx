@@ -1,11 +1,10 @@
 import React from "react";
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import Name from "./Name";
-import { useSpaceFranchisesContext } from "./SpaceFranchisesProvider";
+import { usePlanet } from "../hooks/PlanetContext";
 
 const Header = (): JSX.Element => {
-  const { spaceFranchises } = useSpaceFranchisesContext();
-  
+  const { planet } = usePlanet();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -14,7 +13,7 @@ const Header = (): JSX.Element => {
             Welcome to Equinor Space station. Please don't panic.
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {spaceFranchises}
+            {planet?.source}
           </Typography>
           <Name />
         </Toolbar>
