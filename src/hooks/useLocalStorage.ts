@@ -28,8 +28,8 @@ export const useLocalStorage = <T>(
   const [value, setValue] = useState<T | undefined>(obj);
 
   const saveToStorage = useMemo(() => {
-    // @ts-ignore
-    const save = (v) => {
+
+    const save = (v:T) => {
       saveToLocalStorage<T>(key, v);
       setValue(v);
     };
