@@ -15,11 +15,6 @@ import { usePlanet } from "../hooks/PlanetContext";
 const FavoritePlanets = (): JSX.Element => {
   const { planet, setPlanet } = usePlanet();
 
-  const handleSelectPlanet = (id: number) => {
-    const newSelectedPlanet = planets.find((planet) => planet.id === id)!;
-    setPlanet(newSelectedPlanet);
-  };
-
   return (
     <Container maxWidth={false}>
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -28,7 +23,7 @@ const FavoritePlanets = (): JSX.Element => {
       <Box sx={{ display: "flex", gap: "8px" }}>
         {planets.map((currentPlanet) => (
           <Card
-            onClick={() => handleSelectPlanet(currentPlanet.id)}
+            onClick={() => setPlanet(currentPlanet)}
             sx={{
               maxWidth: 345,
               display: "flex",
