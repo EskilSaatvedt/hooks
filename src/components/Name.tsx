@@ -1,7 +1,7 @@
 import React from "react";
 import { User } from "../utils/types";
 import { Typography } from "@mui/material";
-import useUserContext from "../hooks/UserHook";
+import useUserContext from "../hooks/useUserContext";
 
 const Name = () => {
   const user: User = useUserContext();
