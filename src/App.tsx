@@ -11,7 +11,7 @@ const user:User = {
 
 const  App = () => {
   return (
-    <div >
+    <div data-testid="app">
       <UserContext.Provider value={user}>
         <PlanetProvider>
           <Container/>

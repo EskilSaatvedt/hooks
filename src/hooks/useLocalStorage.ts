@@ -1,6 +1,6 @@
-import { useLayoutEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
-export const saveToLocalStorage = <T>(key: string, object: T) => {
+const saveToLocalStorage = <T>(key: string, object: T) => {
   try {
     const serializedObject = JSON.stringify(object);
     localStorage.setItem(key, serializedObject);
@@ -9,7 +9,7 @@ export const saveToLocalStorage = <T>(key: string, object: T) => {
   }
 };
 
-export const loadFromLocalStorage = <T>(key: string, emptyObject: T): T => {
+const loadFromLocalStorage = <T>(key: string, emptyObject: T): T => {
   try {
     const serializedObject = localStorage.getItem(key);
     if (!serializedObject) return emptyObject;
@@ -24,14 +24,8 @@ export const useLocalStorage = <T>(
   key: string,
   defaultValue?: T
 ): [T | undefined, (object: T) => void] => {
-  const [value, setValue] = useState<T | undefined>(defaultValue);
-
-  useLayoutEffect(() => {
-    const obj = loadFromLocalStorage<T | undefined>(key, defaultValue);
-
-    setValue(obj);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const obj = loadFromLocalStorage<T | undefined>(key, defaultValue);
+  const [value, setValue] = useState<T | undefined>(obj);
 
   const saveToStorage = useMemo(() => {
     // @ts-ignore
