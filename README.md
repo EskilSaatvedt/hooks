@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Learning hooks and context
+Hook and context workshop October 2023
+@author Eskil Saatvedt
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Exercise 1
+Branch /Exercise1
+Download the project from github
+git checkout barbone
 
-## Available Scripts
+Add a UserContext and send the user to the header components were it is displayed
 
-In the project directory, you can run:
+## Exercise 2 
+Branch /Exercise2
 
-### `yarn start`
+Add a SpaceFranchisesProvider, using the hook-provider pattern to send the franchises to the header component
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Exercise 3
+Store the favourite to local storage in the FavouritePlanet component
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Exercise 4
+Make a Planet provider
+Make a usePlanet hook
+Make a useStorage hook
 
-### `yarn test`
+Move all logic from the FavouritePlanet component to the usePlanet hook 
+Move all save to local storage to the useStorage hook
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Combine the two hooks
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Exercise 5
+We are done, but while you wait for the others try:
+Add more planets
+Make it look pretty
+Write tests
+Add pictures
+Help the others!
+Make a useSessionStorage
+Make a useServerStorage
+Make a wrapper function for the three storage hooks
