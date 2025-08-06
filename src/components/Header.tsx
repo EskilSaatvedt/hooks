@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import Name from "./Name";
 import { usePlanet } from "../hooks/PlanetContext";
 
-const Header = (): JSX.Element => {
+const Header = (): ReactElement => {
   const { planet } = usePlanet();
   return (
     <Box sx={{ flexGrow: 1 }}>

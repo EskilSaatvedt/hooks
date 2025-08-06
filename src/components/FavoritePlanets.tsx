@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import {
   Box,
   Container,
@@ -12,7 +12,7 @@ import {
 import { planets } from "../utils/vars";
 import { usePlanet } from "../hooks/PlanetContext";
 
-const FavoritePlanets = (): JSX.Element => {
+const FavoritePlanets = (): ReactElement => {
   const { planet, setPlanet } = usePlanet();
 
   return (

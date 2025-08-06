@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Header from './Header';
 import FavoritePlanets from './FavoritePlanets';
 
-const Container = ():JSX.Element => {
+const Container = ():ReactElement => {
   return (
     <div className="App">
       <Header />
